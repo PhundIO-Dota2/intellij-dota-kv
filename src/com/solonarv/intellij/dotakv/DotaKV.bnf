@@ -1,0 +1,30 @@
+{
+    parserClass = "com.solonarv.intellij.dotakv.parser.KVParser"
+
+    extends = "com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+    psiClassPrefix = "DotaKV"
+    psiImplClassSuffix = "Impl"
+    psiPackage = "com.solonarv.intellij.dotakv.psi"
+    psiImplPackage = "com.solonarv.intellij.dotakv.psi.impl"
+
+    elementTypeHolderClass = "com.solonarv.intellij.dotakv.psi.DotaKVTypes"
+    elementTypeClass = "com.solonarv.intellij.dotakv.psi.DotaKVElementType"
+    tokenTypeClass = "com.solonarv.intellij.dotakv.psi.DotaKVTokenType"
+
+    psiImplUtilClass = "com.solonarv.intellij.dotakv.psi.impl.DotaKVPsiImplUtil"
+}
+
+kvFile ::= keyval_obj
+
+keyval_obj ::= key obj
+
+keyval ::= keyval_obj | keyval_simple
+
+keyval_simple ::= key val
+
+key ::= "\"key\""
+
+obj ::= "{" keyval* "}"
+
+val ::= "\"val\""
